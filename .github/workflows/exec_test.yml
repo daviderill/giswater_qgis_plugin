@@ -15,6 +15,6 @@ jobs:
           python-version: 3.7
       - name: Test with pytest
         run: |
-          python test.py
+          python test/test.py
 
           
