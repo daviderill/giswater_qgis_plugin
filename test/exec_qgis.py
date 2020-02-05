@@ -95,11 +95,21 @@ class TestQgis():
         self.qgs.exitQgis()
 
 
+    def import_giswater(self):
+
+        import giswater
+
+        self.plugin = giswater.classFactory(self.iface)
+        self.plugin.initGui()
+        print(self.plugin.plugin_dir)
+        #self.plugin.project_read()
+
+
 if __name__ == '__main__':
 
     test = TestQgis()
     test.init_config()
     #test.exec_layer()
-    test.import_plugin()
+    test.import_giswater()
     test.exec_qgis()
 
