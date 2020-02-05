@@ -26,14 +26,14 @@ def test_processing():
     QgsApplication.processingRegistry().addProvider(QgsNativeAlgorithms())
     feedback = QgsProcessingFeedback()
 
-    rivers = r'/home/david/workspace/comarques.shp'
+    layer_path = r'/home/david/workspace/comarques.shp'
     output = r'/home/david/workspace/result.shp'
-    if not os.path.exists(rivers):
+    if not os.path.exists(layer_path):
         print("File not found")
 
     expression = "NOM_COMAR LIKE '%Urgell%'"
     result = processing.run(
         'native:extractbyexpression',
-        {'INPUT': rivers, 'EXPRESSION': expression, 'OUTPUT': output}, feedback=feedback
+        {'INPUT': layer_path, 'EXPRESSION': expression, 'OUTPUT': output}, feedback=feedback
     )['OUTPUT']
 
